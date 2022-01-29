@@ -5,18 +5,11 @@ pipeline {
             terraform "Terraform1.1.4" 
         }
 
-    environment {
-        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-    }
-
-    
-
     stages {
         stage('Build') {
             steps {
                 echo 'Running terraform init'
-                sh 'terraform init'
+                sh '/usr/local/bin/terraform init'
             }
         }
         stage('Test') {
