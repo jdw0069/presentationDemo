@@ -24,7 +24,7 @@ deny[reason] {
     r := tfplan.resource_changes[_]
     r.mode == "managed"
     r.type == "aws_s3_bucket"
-    r.change.after.versioning[_].mfa_delete == "public-read-write"
+    r.change.after.versioning[_].mfa_delete == false
 
     reason := sprintf("%-40s :: S3 buckets must have MFA_DELETE", [r.address])
 }
