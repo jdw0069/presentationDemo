@@ -1,15 +1,14 @@
 pipeline {
-    agent any
-
-    tools {
-            terraform "Terraform1.1.4" 
-        }
+    agent none
 
     stages {
         stage('Build') {
+            agent {
+                docker {image 'openpolicyagent/opa'}
+            }
             steps {
                 echo 'Running terraform init'
-                sh '/usr/local/bin/terraform init'
+                sh 'terraform init'
             }
         }
         stage('Test') {
