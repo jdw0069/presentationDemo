@@ -19,7 +19,7 @@ resource "aws_instance" "jenkins_ec2" {
     vpc_security_group_ids = [aws_security_group.jenkins-sg.id]
     subnet_id = aws_subnet.jenkins-subnet.id
     key_name = "jenkins-key"
-    user_data = file("/Users/jdw/Desktop/presentationDemo/jenkins-demo/init-script.sh")
+    user_data = file("./init-script.sh")
   
 
     tags = {
