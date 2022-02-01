@@ -1,26 +1,26 @@
 pipeline {
-    agent none
+    agent ( dockerfile true }
 
     stages {
         stage('Build') {
             agent {
-                docker {image 'openpolicyagent/opa'}
+                sh 'terraform --version'
             }
             steps {
                 echo 'Running terraform init'
-                sh 'terraform init'
+                sh 'conftest --version'
             }
         }
         stage('Test') {
             steps {
                 echo 'Running terraform plan'
-                sh 'terraform plan'
+                //sh 'terraform plan'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Running terraform apply'
-                sh 'terraform apply -auto-approve'
+              //  sh 'terraform apply -auto-approve'
             }
         }
     }
