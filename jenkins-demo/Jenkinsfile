@@ -3,9 +3,6 @@ pipeline {
 
     stages {
         stage('Build') {
-            agent {
-                sh 'terraform --version'
-            }
             steps {
                 echo 'Running terraform init'
                 sh 'conftest --version'
@@ -14,13 +11,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running terraform plan'
-                //sh 'terraform plan'
+                sh 'terraform --vesion'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Running terraform apply'
-              //  sh 'terraform apply -auto-approve'
+            
             }
         }
     }
