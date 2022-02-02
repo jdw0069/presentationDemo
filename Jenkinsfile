@@ -2,15 +2,8 @@ pipeline {
     agent none
         
         stages {
-        stage('Build') {
-            agent {
-        dockerfile {
-            dir '.'
-            filename 'Dockerfile'
-        }
-    }
             steps {
-                script {
+                agent { docker { image "jdw0069/auburndemo" } }
                 echo 'Running terraform init'
                 sh 'ls'
                 sh 'terraform init'
@@ -19,35 +12,23 @@ pipeline {
             }
         }
         stage('Test') {
-            agent {
-        dockerfile {
-            dir '.'
-            filename 'Dockerfile'
-        }
-    }
             steps {
-                script {
+                agent { docker { image "jdw0069/auburndemo" } }
                 echo 'Test terraform before launch'
                 
-                sh 'conftest test testFile.json'
+                sh 'conftest test ./testFile.json'
                 
-                }
+               
             }
         }
         stage('Deploy') {
-            agent {
-        dockerfile {
-            dir '.'
-            filename 'Dockerfile'
-        }
-    }
             steps {
-                script {
+                agent { docker { image "jdw0069/auburndemo" } }
                 echo 'Running terraform apply'
                
                 sh 'ls'
                 
-                }
+               
             }
         }
     }
