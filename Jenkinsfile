@@ -1,5 +1,5 @@
 pipeline {
-    gent { docker { image "jdw0069/auburndemo" } }
+    agent { docker { image "jdw0069/auburndemo" } }
         
         stages {
             steps {
