@@ -1,28 +1,40 @@
 pipeline {
-    agent none
+    agent any
     
+     stages {
+         stage('Clone repository') { 
+            steps { 
+                script{
+                checkout scm
+                }
+            }
+        }
+    def myContainer = docker.build("myContaier")
+         
     stages {
         stage('Build') {
-            agent { docker { image 'jdw0069/auburndemo:latest' } }
             steps {
                 echo 'Running terraform init'
+                myContainer.inside {
                 sh 'terraform init'
-                echo 'Running terraform plan'
+                }
+            
             }
         }
         stage('Test') {
-            agent { docker { image 'jdw0069/auburndemo:latest' } }
             steps {
                 echo 'Test terraform before launch'
+                myContainer.inside {
                 sh 'conftest test testFile.json'
+                }
             }
         }
         stage('Deploy') {
-            agent { docker { image 'jdw0069/auburndemo:latest' } }
             steps {
                 echo 'Running terraform apply'
-                sh 'terraform apply'
-            
+                myContainer.inside {
+                sh 'ls
+                }
             }
         }
     }
