@@ -6,7 +6,7 @@ pipeline {
             steps { 
                 script{
                 checkout scm
-                def myContainer = docker.build("myContaier")
+                def myContainer = docker.build("mytest")
                 }
             }
         }
