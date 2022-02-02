@@ -1,5 +1,6 @@
 pipeline {
-    agent any
+    agent none
+    
     stages {
         stage('Build') {
             agent { docker {image 'jdw0069/auburndemo:latest'} }
