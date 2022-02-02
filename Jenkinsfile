@@ -33,7 +33,7 @@ pipeline {
             steps {
                 echo 'Running terraform apply'
                 myContainer.inside {
-                sh 'ls
+                sh 'ls'
                 }
             }
         }
