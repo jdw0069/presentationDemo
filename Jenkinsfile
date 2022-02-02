@@ -20,7 +20,7 @@ pipeline {
                 
                 sh 'pwd'
                 sh 'ls -la /testFile.json'
-                sh 'conftest test /testFile.json'
+                sh 'conftest test --policy /policy/terraformcheck.rego /testFile.json'
                 
                
             }
