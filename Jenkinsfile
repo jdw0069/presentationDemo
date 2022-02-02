@@ -9,9 +9,10 @@ pipeline {
                 }
             }
         }
+         
     def myContainer = docker.build("myContaier")
          
-    stages {
+  
         stage('Build') {
             steps {
                 echo 'Running terraform init'
