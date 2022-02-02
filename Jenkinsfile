@@ -1,26 +1,15 @@
 pipeline {
-    agent any
-    
-     stages {
-         stage('Clone repository') { 
-            steps { 
-                script{
-                checkout scm
-                def myContainer = docker.build("mytest")
-                }
-            }
-        }
-         
-    
-         
+    agent {
+  dockerfile {
+    dir '.'
+    filename 'Dockerfile'
+  }    
   
         stage('Build') {
             steps {
                 script {
                 echo 'Running terraform init'
-                myContainer.inside {
                 sh 'terraform init'
-                }
                 }
             
             }
@@ -29,9 +18,9 @@ pipeline {
             steps {
                 script {
                 echo 'Test terraform before launch'
-                myContainer.inside {
+                
                 sh 'conftest test testFile.json'
-                }
+                
                 }
             }
         }
@@ -39,9 +28,9 @@ pipeline {
             steps {
                 script {
                 echo 'Running terraform apply'
-                myContainer.inside {
+               
                 sh 'ls'
-                }
+                
                 }
             }
         }
