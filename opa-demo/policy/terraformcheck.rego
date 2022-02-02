@@ -2,7 +2,7 @@ package main
 
 import input as tfplan
 
-deny[reason] {
+allow[reason] {
     r := tfplan.resource_changes[_]
     r.mode == "managed"
     r.type == "aws_s3_bucket"
@@ -11,7 +11,7 @@ deny[reason] {
     reason := sprintf("%-40s :: S3 buckets must not be PUBLIC", [r.address])
 }
 
-deny[reason] {
+allow[reason] {
     r := tfplan.resource_changes[_]
     r.mode == "managed"
     r.type == "aws_s3_bucket"
@@ -20,7 +20,7 @@ deny[reason] {
     reason := sprintf("%-40s :: S3 buckets must have VERSIONING", [r.address])
 }
 
-deny[reason] {
+allow[reason] {
     r := tfplan.resource_changes[_]
     r.mode == "managed"
     r.type == "aws_s3_bucket"
