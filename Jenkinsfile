@@ -1,6 +1,6 @@
 pipeline {
     agent { 
-        docker { image 'auburndemo:latest' }
+        dockerfile true
     }
     stages {
         stage('Build') {
