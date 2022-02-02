@@ -4,7 +4,8 @@ pipeline {
         dockerfile {
             dir '.'
             filename 'Dockerfile'
-        }  
+        }
+    }
         
         stages {
         stage('Build') {
