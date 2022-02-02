@@ -6,19 +6,20 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running terraform init'
-                sh 'conftest --version'
+                sh 'terraform init'
+                echo 'Running terraform plan'
             }
         }
         stage('Test') {
             steps {
-                echo 'Running terraform plan'
-                sh 'terraform --version'
+                echo 'Test terraform before launch'
+                sh 'conftest test testFile.json'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Running terraform apply'
-                sh 'ls'
+                sh 'terraform apply'
             
             }
         }
