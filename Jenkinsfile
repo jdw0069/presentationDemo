@@ -2,15 +2,17 @@ pipeline {
     agent { docker { image "jdw0069/auburndemo" } }
         
         stages {
-            steps {
-               stage('Build') {
-                echo 'Running terraform init'
-                sh 'ls'
-                sh 'terraform init'
-                
+            
+            stage('Test') {
+                steps {
+                   stage('Build') {
+                    echo 'Running terraform init'
+                    sh 'ls'
+                    sh 'terraform init' 
             
             }
         }
+                
         stage('Test') {
             steps {
                 
