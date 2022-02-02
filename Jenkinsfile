@@ -18,6 +18,8 @@ pipeline {
                 
                 echo 'Test terraform before launch'
                 
+                sh 'pwd'
+                sh 'ls -la /testFile.json'
                 sh 'conftest test /testFile.json'
                 
                
