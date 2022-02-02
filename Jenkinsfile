@@ -12,7 +12,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running terraform plan'
-                sh 'terraform --vesion'
+                sh 'terraform --version'
             }
         }
         stage('Deploy') {
