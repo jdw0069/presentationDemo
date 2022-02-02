@@ -18,7 +18,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Running terraform apply'
-                sh 'cat testFile.json'
+                sh 'ls'
             
             }
         }
