@@ -18,7 +18,7 @@ pipeline {
                 
                 echo 'Test terraform before launch'
                 
-                sh 'conftest test ./testFile.json'
+                sh 'conftest test /testFile.json'
                 
                
             }
