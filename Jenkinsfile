@@ -1,14 +1,14 @@
 pipeline {
-    
-    agent {
+    agent none
+        
+        stages {
+        stage('Build') {
+            agent {
         dockerfile {
             dir '.'
             filename 'Dockerfile'
         }
     }
-        
-        stages {
-        stage('Build') {
             steps {
                 script {
                 echo 'Running terraform init'
@@ -19,6 +19,12 @@ pipeline {
             }
         }
         stage('Test') {
+            agent {
+        dockerfile {
+            dir '.'
+            filename 'Dockerfile'
+        }
+    }
             steps {
                 script {
                 echo 'Test terraform before launch'
@@ -29,6 +35,12 @@ pipeline {
             }
         }
         stage('Deploy') {
+            agent {
+        dockerfile {
+            dir '.'
+            filename 'Dockerfile'
+        }
+    }
             steps {
                 script {
                 echo 'Running terraform apply'
