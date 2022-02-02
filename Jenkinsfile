@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image "jdw0069/auburndemo" } }
+    agent { dockerfile true}
         
         stages {
             
