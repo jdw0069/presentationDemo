@@ -12,6 +12,7 @@ pipeline {
             steps {
                 script {
                 echo 'Running terraform init'
+                sh 'ls'
                 sh 'terraform init'
                 }
             
