@@ -17,8 +17,6 @@ pipeline {
             steps {
                 
                 echo 'Test terraform before launch'
-             
-                script {
                     
                     sh 'conftest test --policy /policy/terraformcheck.rego /testFile.json'
                     sh 'echo $?'
