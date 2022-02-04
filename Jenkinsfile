@@ -8,17 +8,12 @@ pipeline {
         
         stages {
             
-            stage('Checkout') {
-                steps {
-                    checkout scm
-                }
-            }
                 
             stage('Initialize') {
                 steps {
                     echo 'Running terraform init'
                     
-                    sh 'cd /opa-demo'
+                   
                     sh 'terraform init' 
                     
             }
