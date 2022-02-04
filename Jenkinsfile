@@ -18,7 +18,7 @@ pipeline {
                 steps {
                     echo 'Running terraform init'
                     
-                    sh 'cd /opa-demo'
+                    
                     sh 'terraform init' 
                     
             }
@@ -29,7 +29,7 @@ pipeline {
                  
                     echo 'Running terraform plan'
                     
-                    sh 'cd /opa-demo'
+                    
                     sh 'terraform plan' 
                     
             }
@@ -39,7 +39,7 @@ pipeline {
             steps {
                 
                 echo 'Test terraform before launch'
-                    sh 'cd /opa-demo'
+                    
                     sh 'conftest test --policy /policy/terraformcheck.rego /testFile.json'
                     
                
