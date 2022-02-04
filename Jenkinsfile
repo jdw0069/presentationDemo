@@ -17,10 +17,19 @@ pipeline {
             steps {
                 
                 echo 'Test terraform before launch'
-                
-                sh 'pwd'
-                sh 'ls -la /testFile.json'
-                sh 'conftest test --policy /policy/terraformcheck.rego /testFile.json'
+             
+                script {
+                    
+                    sh 'conftest test --policy /policy/terraformcheck.rego /testFile.json'
+                    try {
+                        sh 'echo $?'
+                        
+                    }
+                    
+                    catch (exc) {
+                        echo "Failed"
+                        throw
+                    }
                 
                
             }
