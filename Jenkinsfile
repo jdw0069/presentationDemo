@@ -1,14 +1,33 @@
 pipeline {
-    agent { dockerfile true}
+    agent { dockerfile true }
+    
+    environment {
+        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+    }
         
         stages {
             
-            stage('Build') {
+            stage('Checkout') {
+                steps {
+                    checkout scm
+                }
+            }
+                
+            stage('Initialize') {
                 steps {
                  
                     echo 'Running terraform init'
-                    sh 'ls'
                     sh 'terraform init' 
+            
+            }
+        }
+            
+             stage('Plan') {
+                steps {
+                 
+                    echo 'Running terraform plan'
+                    sh 'terraform plan' 
             
             }
         }
