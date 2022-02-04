@@ -21,17 +21,12 @@ pipeline {
                 script {
                     
                     sh 'conftest test --policy /policy/terraformcheck.rego /testFile.json'
-                    try {
-                        sh 'echo $?'
+                    script {
                         
-                    }
-                    
-                    catch (exc) {
-                        echo "Failed"
-                       
-                    }
-                
-               
+                        if (sh 'echo $? == 1) {
+                            sh 'make check || true'
+                            }
+                        }
             }
         }
         stage('Deploy') {
