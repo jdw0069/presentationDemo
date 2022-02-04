@@ -21,12 +21,8 @@ pipeline {
                 script {
                     
                     sh 'conftest test --policy /policy/terraformcheck.rego /testFile.json'
-                    script {
-                        
-                        if (sh 'echo $?' == 1) {
-                            sh 'make check || true'
-                            }
-                        }
+                    sh 'echo $?'
+               
             }
         }
         stage('Deploy') {
