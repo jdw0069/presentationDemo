@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 
 RUN addgroup jenkins --gid 992
 RUN useradd -u 1000 -g 992 jenkins
-USER jenkins
+
 
 #install terraform
 RUN apt-get update && apt-get install -y 
@@ -18,7 +18,9 @@ RUN tar xzf conftest_0.25.0_Linux_x86_64.tar.gz
 RUN mv conftest /usr/local/bin
 RUN rm -rf conftest* && rm -rf README* ## rm -rf LICENSE 
 
+
 #copy folder to docker
+USER jenkins
 ADD /opa-demo /opa-demo
 
 
