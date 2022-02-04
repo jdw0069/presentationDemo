@@ -14,8 +14,8 @@ RUN tar xzf conftest_0.25.0_Linux_x86_64.tar.gz
 RUN mv conftest /usr/local/bin
 RUN rm -rf conftest* && rm -rf README* ## rm -rf LICENSE 
 
-#copy files to docker
-COPY /opa-demo .
+#copy folder to docker
+ADD /opa-demo .
 
 
 
