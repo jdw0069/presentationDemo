@@ -1,8 +1,6 @@
 FROM ubuntu:20.04
 
-
-RUN addgroup -S -g 992 jenkins
-RUN adduser -S -u 992 -G jenkins jenkins
+RUN useradd -g 992 jenkins
 USER jenkins
 
 #install terraform
