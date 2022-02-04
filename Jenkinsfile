@@ -18,6 +18,7 @@ pipeline {
                 steps {
                     echo 'Running terraform init'
                     dir('/opa-demo') {
+                    sh 'pwd'
                     sh 'terraform init' 
                     }
             }
