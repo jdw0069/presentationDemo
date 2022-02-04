@@ -28,7 +28,7 @@ pipeline {
                     
                     catch (exc) {
                         echo "Failed"
-                        throw
+                       
                     }
                 
                
