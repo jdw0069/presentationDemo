@@ -1,9 +1,5 @@
 FROM ubuntu:20.04
 
-RUN addgroup ec2-user --gid 1000
-RUN useradd -u 1000 -g ec2-user ec2-user
-
-
 #install terraform
 RUN apt-get update && apt-get install -y 
 RUN  apt-get install -y gnupg software-properties-common \
@@ -20,11 +16,9 @@ RUN rm -rf conftest* && rm -rf README* ## rm -rf LICENSE
 
 
 #copy folder to docker
-ADD /opa-demo /opa-demo
-RUN chmod 666 /opa-demo
-RUN chmod 666 /opa-demo/policy
+ADD /opa-demo /
 
-USER ec2-user
+
 
 
 
