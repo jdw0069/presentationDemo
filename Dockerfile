@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
-RUN addgroup jenkins --gid 992
-RUN useradd -u 1000 -g 992 jenkins
+RUN addgroup docker --gid 992
+RUN useradd -u 1000 -g docker jenkins
 
 
 #install terraform
@@ -20,8 +20,9 @@ RUN rm -rf conftest* && rm -rf README* ## rm -rf LICENSE
 
 
 #copy folder to docker
-USER jenkins
 ADD /opa-demo /opa-demo
+
+USER jenkins
 
 
 
