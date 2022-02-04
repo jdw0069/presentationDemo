@@ -21,6 +21,8 @@ RUN rm -rf conftest* && rm -rf README* ## rm -rf LICENSE
 
 #copy folder to docker
 ADD /opa-demo /opa-demo
+RUN chmod 666 /opa-demo
+RUN chmod 666 /opa-demo/policy
 
 USER ec2-user
 
