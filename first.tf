@@ -36,6 +36,6 @@ resource "aws_s3_bucket_object" "demo_s3_upload" {
   acl = "public-read"
   content_type = "image/jpeg"
   content_disposition = "inline; filename=picture.jpeg"
-  source = "./picture.jpeg"
+  source = "./picture.jpeg" //change source
 }
 

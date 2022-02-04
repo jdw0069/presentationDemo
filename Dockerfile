@@ -16,9 +16,8 @@ RUN rm -rf conftest* && rm -rf README* ## rm -rf LICENSE
 
 
 #copy folder to docker
-ADD /opa-demo /opa-demo
+ADD /opa-demo . 
 
-WORKDIR /opa-demo
 
 
 
