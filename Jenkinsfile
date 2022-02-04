@@ -19,7 +19,7 @@ pipeline {
                 echo 'Test terraform before launch'
                     
                     sh 'conftest test --policy /policy/terraformcheck.rego /testFile.json'
-                    sh 'echo $?'
+                    
                
             }
         }
