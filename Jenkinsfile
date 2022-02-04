@@ -17,10 +17,10 @@ pipeline {
             stage('Initialize') {
                 steps {
                     echo 'Running terraform init'
-                    dir('/opa-demo') {
+                    
                     sh 'pwd'
                     sh 'terraform init' 
-                    }
+                    
             }
         }
             
@@ -28,9 +28,9 @@ pipeline {
                 steps {
                  
                     echo 'Running terraform plan'
-                    dir('/opa-demo') {
+                    
                     sh 'terraform plan' 
-                    }
+                    
             }
         }
                 
@@ -38,9 +38,9 @@ pipeline {
             steps {
                 
                 echo 'Test terraform before launch'
-                    dir('/opa-demo') {
+                    
                     sh 'conftest test --policy /policy/terraformcheck.rego /testFile.json'
-                    }
+                    
                
             }
         }
