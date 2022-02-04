@@ -1,5 +1,10 @@
 FROM ubuntu:20.04
 
+
+RUN addgroup -S -g 992 jenkins
+RUN adduser -S -u 992 -G jenkins jenkins
+USER jenkins
+
 #install terraform
 RUN apt-get update && apt-get install -y 
 RUN  apt-get install -y gnupg software-properties-common \
