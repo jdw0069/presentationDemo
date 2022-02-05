@@ -41,7 +41,7 @@ pipeline {
             }
         }
                 
-    /**    stage('Test') {
+        stage('Test') {
             steps {
                 
                 echo 'Test terraform before launch'
@@ -59,7 +59,7 @@ pipeline {
                 sh 'terraform apply -auto-approve'
                           
             }
-        } **/
+        } 
     }
 }
 //test webhook23
