@@ -30,7 +30,7 @@ pipeline {
             }
         }
             
-        stage('Conversion') {
+        stage('Format') {
                 steps {
                  
                     echo 'Convert to json'
