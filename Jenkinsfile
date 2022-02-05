@@ -30,7 +30,7 @@ pipeline {
             }
         }
             
-        stage('Convert to json for tests') {
+        stage('Conversion') {
                 steps {
                  
                     echo 'Convert to json'
@@ -45,8 +45,7 @@ pipeline {
             steps {
                 
                 echo 'Test terraform before launch'
-                    sh 'pwd'
-                    sh 'ls -la'
+             
                     sh 'conftest test --policy ./policy/terraformcheck.rego ./testFile.json'
                     
                
@@ -55,9 +54,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 
-                echo 'Running terraform apply'
+                echo 'Deploying terraform'
                
-                sh 'ls'
+                sh 'terraform apply -auto-approve'
                           
             }
         }
