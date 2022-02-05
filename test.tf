@@ -8,7 +8,7 @@ resource "aws_s3_bucket" "testbucket" {
     acl = "public-read"
     versioning {
       enabled = true
-      mfa_delete = true
+     
     }
   
 }
