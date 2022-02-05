@@ -5,7 +5,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "testbucket" {
     bucket = "someauburntestbucket"
-    acl = "public-read"
+    acl = "private"
     versioning {
       enabled = true
      
