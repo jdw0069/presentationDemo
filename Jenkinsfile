@@ -25,7 +25,18 @@ pipeline {
                     echo 'Running terraform plan'
                     
                     
-                    sh 'terraform plan' 
+                    sh 'terraform plan --out tfplan.binary'
+                    
+            }
+        }
+            
+        stage('Convert to json for tests') {
+                steps {
+                 
+                    echo 'Convert to json'
+                    
+                    
+                    sh 'terraform show -json tfplan.binary > testFile.json'
                     
             }
         }
