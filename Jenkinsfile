@@ -40,7 +40,7 @@ pipeline {
                     
             }
         }
-         /**       
+               
         stage('Test') {
             steps {
                 
@@ -59,7 +59,7 @@ pipeline {
                 sh 'terraform apply -auto-approve'
                           
             }
-        } **/
+        } 
     }
 }
-//test webhook29
+//test webhook30
