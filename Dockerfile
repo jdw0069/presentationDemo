@@ -18,7 +18,6 @@ RUN rm -rf conftest* && rm -rf README* ## rm -rf LICENSE
 #copy folder to docker
 COPY policy/ /
 COPY test.tf /
-COPY testFile.json /
 
 
 
