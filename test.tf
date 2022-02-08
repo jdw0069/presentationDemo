@@ -3,6 +3,7 @@ provider "aws" {
   shared_credentials_file = "~/.aws/credentials"
 }
 
+#demo
 resource "aws_s3_bucket" "testbucket" {
     bucket = "someauburntestbucket"
     acl = "public-read-write"
