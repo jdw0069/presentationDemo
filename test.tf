@@ -1,14 +1,16 @@
+
+   
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0,!= 3.14.0"
+    }
+  }
+  required_version = ">= 0.14"
+}
 provider "aws" {
   region = "us-east-1"
-  shared_credentials_file = "~/.aws/credentials"
+  shared_credentials_file = ""
 }
 
-resource "aws_s3_bucket" "testbucket" {
-    bucket = "someauburntestbucket"
-    acl = "public-read-write"
-    versioning {
-      enabled = false
-     
-    }
-  
-}
