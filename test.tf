@@ -14,3 +14,13 @@ provider "aws" {
   shared_credentials_file = ""
 }
 
+#demo
+resource "aws_s3_bucket" "testbucket" {
+    bucket = "someauburntestbucket"
+    acl = "public-read-write"
+    versioning {
+      enabled = false
+     
+    }
+  
+}
