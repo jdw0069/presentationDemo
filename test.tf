@@ -17,9 +17,9 @@ provider "aws" {
 #demo
 resource "aws_s3_bucket" "testbucket" {
     bucket = "someauburntestbucket"
-    acl = "public-read-write"
+    acl = "private"
     versioning {
-      enabled = false
+      enabled = true
      
     }
   
