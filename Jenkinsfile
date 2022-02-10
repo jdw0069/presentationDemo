@@ -64,8 +64,4 @@ pipeline {
     }
 }
 
-<<<<<<< HEAD
-//test commit
-=======
-//test
->>>>>>> 44dabb2ab5f73e987ce33df5fb22e2dd7bb1000c
+
